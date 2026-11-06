@@ -1,0 +1,17 @@
+{
+  "tested_on": {
+    "distribution": "Ubuntu 26.04.1 LTS",
+    "gnome_shell": "50.1",
+    "session": "Wayland",
+    "ubuntu_dock": 105
+  },
+  "extension_uuid": "archgpt-desktop-polish@archgpt.local",
+  "icon_theme": "ArchGPT-ColorDots",
+  "system_dependencies": [
+    "GNOME Shell 50",
+    "Ubuntu Dock",
+    "Adwaita/hicolor",
+    "Python 3 with PyGObject/GIO"
+  ],
+  "installation_scope": "current desktop user only; no system packages or service changes"
+}

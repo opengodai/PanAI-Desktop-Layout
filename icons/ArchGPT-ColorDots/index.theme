@@ -1,0 +1,10 @@
+[Icon Theme]
+Name=ArchGPT Color Dots
+Comment=Nine colored launcher dots; all other icons inherit Adwaita
+Inherits=Adwaita,hicolor
+Directories=128x128/actions
+
+[128x128/actions]
+Size=128
+Type=Fixed
+Context=Actions

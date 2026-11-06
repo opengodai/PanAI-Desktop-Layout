@@ -1,0 +1,702 @@
+{
+  "format": 1,
+  "settings": [
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "activate-single-window",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "always-center-icons",
+      "type": "b",
+      "value": "false"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "animation-time",
+      "type": "d",
+      "value": "0.20000000000000001"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-ctrl-hotkey-1",
+      "type": "as",
+      "value": "['<Ctrl><Super>1']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-ctrl-hotkey-10",
+      "type": "as",
+      "value": "['<Ctrl><Super>0']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-ctrl-hotkey-2",
+      "type": "as",
+      "value": "['<Ctrl><Super>2']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-ctrl-hotkey-3",
+      "type": "as",
+      "value": "['<Ctrl><Super>3']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-ctrl-hotkey-4",
+      "type": "as",
+      "value": "['<Ctrl><Super>4']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-ctrl-hotkey-5",
+      "type": "as",
+      "value": "['<Ctrl><Super>5']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-ctrl-hotkey-6",
+      "type": "as",
+      "value": "['<Ctrl><Super>6']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-ctrl-hotkey-7",
+      "type": "as",
+      "value": "['<Ctrl><Super>7']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-ctrl-hotkey-8",
+      "type": "as",
+      "value": "['<Ctrl><Super>8']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-ctrl-hotkey-9",
+      "type": "as",
+      "value": "['<Ctrl><Super>9']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-hotkey-1",
+      "type": "as",
+      "value": "['<Super>1']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-hotkey-10",
+      "type": "as",
+      "value": "['<Super>0']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-hotkey-2",
+      "type": "as",
+      "value": "['<Super>2']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-hotkey-3",
+      "type": "as",
+      "value": "['<Super>3']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-hotkey-4",
+      "type": "as",
+      "value": "['<Super>4']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-hotkey-5",
+      "type": "as",
+      "value": "['<Super>5']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-hotkey-6",
+      "type": "as",
+      "value": "['<Super>6']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-hotkey-7",
+      "type": "as",
+      "value": "['<Super>7']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-hotkey-8",
+      "type": "as",
+      "value": "['<Super>8']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-hotkey-9",
+      "type": "as",
+      "value": "['<Super>9']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-shift-hotkey-1",
+      "type": "as",
+      "value": "['<Shift><Super>1']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-shift-hotkey-10",
+      "type": "as",
+      "value": "['<Shift><Super>0']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-shift-hotkey-2",
+      "type": "as",
+      "value": "['<Shift><Super>2']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-shift-hotkey-3",
+      "type": "as",
+      "value": "['<Shift><Super>3']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-shift-hotkey-4",
+      "type": "as",
+      "value": "['<Shift><Super>4']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-shift-hotkey-5",
+      "type": "as",
+      "value": "['<Shift><Super>5']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-shift-hotkey-6",
+      "type": "as",
+      "value": "['<Shift><Super>6']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-shift-hotkey-7",
+      "type": "as",
+      "value": "['<Shift><Super>7']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-shift-hotkey-8",
+      "type": "as",
+      "value": "['<Shift><Super>8']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "app-shift-hotkey-9",
+      "type": "as",
+      "value": "['<Shift><Super>9']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "application-counter-overrides-notifications",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "apply-custom-theme",
+      "type": "b",
+      "value": "false"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "apply-glossy-effect",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "autohide",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "autohide-in-fullscreen",
+      "type": "b",
+      "value": "false"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "background-color",
+      "type": "s",
+      "value": "'#ffffff'"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "background-opacity",
+      "type": "d",
+      "value": "0.0"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "bolt-support",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "click-action",
+      "type": "s",
+      "value": "'focus-or-appspread'"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "custom-background-color",
+      "type": "b",
+      "value": "false"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "custom-theme-customize-running-dots",
+      "type": "b",
+      "value": "false"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "custom-theme-running-dots-border-color",
+      "type": "s",
+      "value": "'#ffffff'"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "custom-theme-running-dots-border-width",
+      "type": "i",
+      "value": "0"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "custom-theme-running-dots-color",
+      "type": "s",
+      "value": "'#ffffff'"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "custom-theme-shrink",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "customize-alphas",
+      "type": "b",
+      "value": "false"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "dance-urgent-applications",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "dash-max-icon-size",
+      "type": "i",
+      "value": "28"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "default-windows-preview-to-open",
+      "type": "b",
+      "value": "false"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "disable-overview-on-startup",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "dock-fixed",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "dock-position",
+      "type": "s",
+      "value": "'LEFT'"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "extend-height",
+      "type": "b",
+      "value": "false"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "force-straight-corner",
+      "type": "b",
+      "value": "false"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "height-fraction",
+      "type": "d",
+      "value": "0.90000000000000002"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "hide-delay",
+      "type": "d",
+      "value": "0.20000000000000001"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "hide-tooltip",
+      "type": "b",
+      "value": "false"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "hot-keys",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "hotkeys-overlay",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "hotkeys-show-dock",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "icon-size-fixed",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "intellihide",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "intellihide-mode",
+      "type": "s",
+      "value": "'ALL_WINDOWS'"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "isolate-locations",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "isolate-monitors",
+      "type": "b",
+      "value": "false"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "isolate-workspaces",
+      "type": "b",
+      "value": "false"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "manualhide",
+      "type": "b",
+      "value": "false"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "max-alpha",
+      "type": "d",
+      "value": "0.80000000000000004"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "middle-click-action",
+      "type": "s",
+      "value": "'launch'"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "min-alpha",
+      "type": "d",
+      "value": "0.20000000000000001"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "minimize-shift",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "multi-monitor",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "preferred-monitor",
+      "type": "i",
+      "value": "-2"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "preferred-monitor-by-connector",
+      "type": "s",
+      "value": "'primary'"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "pressure-threshold",
+      "type": "d",
+      "value": "100.0"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "preview-size-scale",
+      "type": "d",
+      "value": "0.0"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "require-pressure-to-show",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "running-indicator-dominant-color",
+      "type": "b",
+      "value": "false"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "running-indicator-style",
+      "type": "s",
+      "value": "'DOTS'"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "scroll-action",
+      "type": "s",
+      "value": "'switch-workspace'"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "scroll-switch-workspace",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "scroll-to-focused-application",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "shift-click-action",
+      "type": "s",
+      "value": "'launch'"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "shift-middle-click-action",
+      "type": "s",
+      "value": "'minimize'"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "shortcut",
+      "type": "as",
+      "value": "['<Super>q']"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "shortcut-text",
+      "type": "s",
+      "value": "'<Super>q'"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "shortcut-timeout",
+      "type": "d",
+      "value": "2.0"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "show-apps-always-in-the-edge",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "show-apps-at-top",
+      "type": "b",
+      "value": "false"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "show-delay",
+      "type": "d",
+      "value": "0.25"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "show-dock-urgent-notify",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "show-favorites",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "show-icons-emblems",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "show-icons-notifications-counter",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "show-mounts",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "show-mounts-network",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "show-mounts-only-mounted",
+      "type": "b",
+      "value": "false"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "show-running",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "show-show-apps-button",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "show-trash",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "show-windows-preview",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "transparency-mode",
+      "type": "s",
+      "value": "'FIXED'"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "unity-backlit-items",
+      "type": "b",
+      "value": "false"
+    },
+    {
+      "schema": "org.gnome.shell.extensions.dash-to-dock",
+      "key": "workspace-agnostic-urgent-windows",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.desktop.interface",
+      "key": "clock-format",
+      "type": "s",
+      "value": "'24h'"
+    },
+    {
+      "schema": "org.gnome.desktop.interface",
+      "key": "clock-show-date",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.desktop.interface",
+      "key": "clock-show-seconds",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.desktop.interface",
+      "key": "clock-show-weekday",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.desktop.interface",
+      "key": "color-scheme",
+      "type": "s",
+      "value": "'prefer-dark'"
+    },
+    {
+      "schema": "org.gnome.desktop.interface",
+      "key": "enable-animations",
+      "type": "b",
+      "value": "true"
+    },
+    {
+      "schema": "org.gnome.desktop.interface",
+      "key": "icon-theme",
+      "type": "s",
+      "value": "'ArchGPT-ColorDots'"
+    },
+    {
+      "schema": "org.gnome.shell",
+      "key": "favorite-apps",
+      "type": "as",
+      "value": "['firefox_firefox.desktop', 'org.gnome.Rhythmbox3.desktop', 'libreoffice-writer.desktop', 'snap-store_snap-store.desktop', 'com.archgpt.PanCapture.desktop']"
+    }
+  ],
+  "enable_extensions": [
+    "ubuntu-dock@ubuntu.com",
+    "archgpt-desktop-polish@archgpt.local"
+  ],
+  "disable_extensions": [
+    "dash-to-panel@jderose9.github.com"
+  ]
+}

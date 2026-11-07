@@ -1,4 +1,7 @@
 import GLib from 'gi://GLib';
+import {playBaguaRipple} from './bagua-ripple.js';
+import {installBarColoredTitle as installRgbIndicator} from './bar-colored-title.js';
+import {adaptDash} from './adaptive-icons.js';
 import {installScreenCenter} from './screen-center.js';
 import {installButtonAlignment} from './button-align.js';
 import St from 'gi://St';
@@ -9,6 +12,7 @@ import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 export default class DesktopPolish extends Extension {
     enable() {
         this._buttons = new Map();
+        this._adaptiveDashes = new Map();
         this._rings = new Set();
         this._clock = Main.panel.statusArea.dateMenu.container;
         this._clockParent = this._clock.get_parent();
@@ -22,6 +26,7 @@ export default class DesktopPolish extends Extension {
         Main.panel._centerBox.add_child(this._activities);
         this._screenCenterCleanup = installScreenCenter();
         this._buttonAlignmentCleanup = installButtonAlignment();
+        this._rgbIndicatorCleanup = installRgbIndicator();
         this._extensionsId = Main.extensionManager.connect('extension-state-changed',
             () => this._queueBind());
         this._monitorsId = Main.layoutManager.connect('monitors-changed',
@@ -56,6 +61,9 @@ export default class DesktopPolish extends Extension {
 
     _bindDockButtons(actor, inDock) {
         inDock ||= actor.name === 'dashtodockContainer';
+        if (actor.name === 'dashtodockContainer' && actor.dash &&
+            !this._adaptiveDashes.has(actor.dash))
+            this._adaptiveDashes.set(actor.dash, adaptDash(actor.dash));
         if (inDock && actor.has_style_class_name?.('show-apps') &&
             !this._buttons.has(actor)) {
             actor.add_style_class_name('archgpt-color-launcher');
@@ -68,40 +76,7 @@ export default class DesktopPolish extends Extension {
     }
 
     _play(button) {
-        // Repeated clicks restart the effect instead of accumulating actors.
-        this._clearRings();
-        const [x, y] = button.get_transformed_position();
-        const [w, h] = button.get_transformed_size();
-        ['#49c9f2', '#a56de2', '#ff9d00'].forEach((color, i) => {
-            const ring = new St.Widget({
-                style_class: 'archgpt-launcher-ripple',
-                style: `border-color: ${color};`,
-                reactive: false,
-                can_focus: false,
-                width: 64,
-                height: 64,
-                x: x + w / 2 - 32,
-                y: y + h / 2 - 32,
-                opacity: 210,
-                scale_x: 0.3,
-                scale_y: 0.3,
-            });
-            ring.set_pivot_point(0.5, 0.5);
-            Main.layoutManager.uiGroup.add_child(ring);
-            this._rings.add(ring);
-            ring.ease({
-                scale_x: 1.3 - i * 0.12,
-                scale_y: 1.3 - i * 0.12,
-                opacity: 0,
-                duration: 550,
-                delay: i * 70,
-                mode: Clutter.AnimationMode.EASE_OUT_QUAD,
-                onComplete: () => {
-                    this._rings.delete(ring);
-                    ring.destroy();
-                },
-            });
-        });
+        playBaguaRipple.call(this, button);
     }
 
     _clearRings() {
@@ -113,6 +88,10 @@ export default class DesktopPolish extends Extension {
     }
 
     disable() {
+        this._rgbIndicatorCleanup?.();
+        this._rgbIndicatorCleanup = null;
+        for (const cleanup of this._adaptiveDashes.values()) cleanup();
+        this._adaptiveDashes.clear();
         this._buttonAlignmentCleanup?.();
         this._buttonAlignmentCleanup = null;
         this._screenCenterCleanup?.();

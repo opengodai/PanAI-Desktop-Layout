@@ -3,9 +3,9 @@
 顶部状态栏与左侧 Dock 的完整 GNOME 桌面定制，已在 Ubuntu 26.04.1、GNOME Shell 50.1、Wayland、Ubuntu Dock 105 上验收。
 
 - 顶部时间靠左，显示日期、星期和秒；工作区指示器位于屏幕中央。
-- 白色工作区胶囊在鼠标悬停的椭圆背景内居中；校正 Dock 导致的工作区中心偏移。
-- 左侧 Dock：28px、紧凑间距、垂直居中、透明底板，应用启动器位于底部。
-- 九色启动器：全彩图标、彩色悬停/按下反馈、三色扩散淡出动画。
+- 顶部中央为 **81×13px 彩色长条**，12 色、5 秒呼吸循环；点击显示彩色 `PanAI for Arch-GPT`，字母立即向左右散开淡出，无 2 秒停留。
+- 左侧 Dock：按图标数量和可用空间自动缩放（15～52px，以 1px 步长自适应）、紧凑间距、垂直居中、透明底板，应用启动器位于底部。
+- 九色启动器：默认 3×3 全彩图标、无描边；点击以原图标中心展开 231 个不同颜色的太极八卦彩点。全部彩点绘于单张画布，仅动画整体缩放和淡出。
 - Windows 挂载卷可使用红、绿、蓝、黄四色图标。
 - 包含 115 项类型明确的 GSettings 配置、收藏入口、全部自定义图标、安装、当前会话激活和回退工具。
 
@@ -31,7 +31,7 @@ cd PanAI-Desktop-Layout
 
 ### 无需注销的即时生效
 
-Dock 设置会即时更新。GNOME 对新建本地扩展的发现有限制，已导入的 JavaScript 也有会话缓存。因此安装脚本会输出一条基于实际仓库路径的命令，在 **Alt+F2 → `lg`** 中执行，随后按 Esc 即可应用顶部布局与动画。脚本不会开启 unsafe mode 或绕过 Shell 权限。
+Dock 设置会即时更新。GNOME 对新建本地扩展的发现有限制，已导入的 JavaScript 也有会话缓存。安装器还会创建按源码 SHA-256 命名的本地模块快照，避免旧会话重新使用过期代码；因此安装脚本会输出一条基于实际仓库路径的命令，在 **Alt+F2 → `lg`** 中执行，随后按 Esc 即可应用顶部布局与动画。脚本不会开启 unsafe mode 或绕过 Shell 权限。
 
 命令形式如下（用安装脚本输出的实际路径替换示例）：
 
@@ -68,7 +68,7 @@ await import('file:///absolute/path/to/PanAI-Desktop-Layout/scripts/activate-liv
 ## 源码与验证
 
 - `extension/`：完整自定义扩展，UUID 保留为 `archgpt-desktop-polish@archgpt.local`，与已验收实例兼容。
-- `icons/`：九色图标 SVG、全色 PNG 别名、Windows 四色 SVG 和图标主题。
+- `icons/`：九色点阵 SVG、全色 PNG 别名、Windows 四色 SVG 和图标主题。
 - `config/`：顶部、Dock 的完整配置与已测运行环境。
 - `scripts/`：安装/回退实现及无需注销的激活入口。
 - `tests/`：布局、生命周期、动画清理和安装回退测试。
@@ -88,3 +88,9 @@ node tests/button-align.cjs
 项目已从 PanDesktop 更名为 **PanAI Desktop Layout**，GitHub 仓库为 `opengodai/PanAI-Desktop-Layout`。保留扩展 UUID、原有 `PanDesktop` 备份目录和本机安装路径，确保已有配置与回退记录继续可用。
 
 2026-11-07 修复了旧会话扩展实例的问题，并增加会话恢复后的布局校正。回归测试覆盖扩展启停及会话布局重建；当前桌面已实际确认顶部时钟靠左、工作区指示器居中。
+
+## 重启与持久化
+
+安装文件位于当前用户的 GNOME 扩展目录，启用状态与 Dock 设置由 GSettings 持久保存。正常重启或重新登录时会加载相同的最终实现，不需要重复执行临时效果脚本。当前会话应用安装更新时，统一使用 `scripts/activate-live.js`；不再叠加逐项实验补丁。
+
+兼容范围目前为 GNOME Shell 50 / Ubuntu Dock 105。未来 GNOME 大版本升级需要重新验证。自动化覆盖安装回退、资源清理和启停恢复；不会为验证而重启正在工作的桌面。

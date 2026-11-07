@@ -1,15 +1,34 @@
 /* Only the app-grid button is affected; the Dock stays transparent. */
 #dashtodockContainer .show-apps.archgpt-color-launcher:hover .overview-icon {
     background-color: rgba(73, 201, 242, 0.18);
-    box-shadow: inset 0 0 0 1px rgba(73, 201, 242, 0.65);
+    box-shadow: none;
 }
 #dashtodockContainer .show-apps.archgpt-color-launcher:active .overview-icon,
 #dashtodockContainer .show-apps.archgpt-color-launcher:checked .overview-icon {
     background-color: rgba(165, 109, 226, 0.25);
-    box-shadow: inset 0 0 0 1px rgba(237, 108, 168, 0.75);
+    box-shadow: none;
 }
 .archgpt-launcher-ripple {
-    border: 2px solid;
+    border: 3px solid;
     border-radius: 999px;
     background-color: transparent;
+}
+
+#dashtodockContainer .show-apps.archgpt-color-launcher .overview-icon {
+    border: none;
+    box-shadow: none;
+}
+
+/* The top indicator remains a pill, with a clearer 12px stroke. */
+#panel .panel-button#panelActivities .workspace-dot {
+    min-height: 13px !important;
+    min-width: 22.35px !important;
+}
+
+/* Keep the shared Dock plate invisible in desktop and overview states. */
+#dashtodockContainer #dash .dash-background {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    border-width: 0 !important;
+    box-shadow: none !important;
 }

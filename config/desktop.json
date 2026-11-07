@@ -305,7 +305,7 @@
       "schema": "org.gnome.shell.extensions.dash-to-dock",
       "key": "dash-max-icon-size",
       "type": "i",
-      "value": "28"
+      "value": "52"
     },
     {
       "schema": "org.gnome.shell.extensions.dash-to-dock",
@@ -383,7 +383,7 @@
       "schema": "org.gnome.shell.extensions.dash-to-dock",
       "key": "icon-size-fixed",
       "type": "b",
-      "value": "true"
+      "value": "false"
     },
     {
       "schema": "org.gnome.shell.extensions.dash-to-dock",

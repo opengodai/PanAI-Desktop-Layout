@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """User-scoped PanAI Desktop Layout install, check and exact-settings rollback."""
 from pathlib import Path
-import argparse, datetime, json, os, shutil, sys
+import argparse, datetime, hashlib, json, os, shutil, sys
 sys.path.append('/usr/lib/python3/dist-packages')
 from gi.repository import Gio, GLib
 
@@ -81,6 +81,19 @@ def restore(path):
     print('已恢复备份；只恢复本项目涉及的配置、文件和扩展成员关系。')
     print('运行中的已导入扩展源码不会热重载；可用 scripts/activate-live.js 即时应用安装版本。')
 
+def prepare_runtime(target):
+    """Immutable module paths avoid importing an old live-session JS cache."""
+    digest=hashlib.sha256()
+    sources=sorted((ROOT/'extension').glob('*.js'))
+    for p in sources:
+        digest.update(p.name.encode()+b'\0'+p.read_bytes())
+    version=digest.hexdigest()
+    dest=target/'runtime'/version
+    dest.mkdir(parents=True,exist_ok=True)
+    for p in sources:shutil.copy2(p,dest/p.name)
+    (target/'runtime.json').write_text(json.dumps({'format':1,'sha256':version},indent=2)+'\n')
+    return version
+
 def apply(mount=None):
     if os.geteuid()==0:raise RuntimeError('请以桌面登录用户运行，不要使用 sudo。')
     validate()
@@ -101,6 +114,7 @@ def apply(mount=None):
             target.parent.mkdir(parents=True,exist_ok=True)
             if target.exists():shutil.rmtree(target)
             shutil.copytree(source,target)
+        prepare_runtime(TARGETS[0][1])
         for rec in PROFILE['settings']:
             value=GLib.Variant.parse(GLib.VariantType.new(rec['type']),rec['value'],None,None)
             s=setting(rec['schema']);assert s.set_value(rec['key'],value)

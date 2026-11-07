@@ -10,6 +10,13 @@ done
 node tests/lifecycle.cjs
 node tests/screen-center.cjs
 node tests/button-align.cjs
+node tests/adaptive-icons.cjs
+node tests/rgb-indicator.cjs
+node tests/star-chain.cjs
+node tests/indicator-title.cjs
+node tests/bagua-ripple.cjs
+node tests/check-pill-width-regression.cjs
+node tests/exact-bar-size.cjs
 if [[ -x "$HOME/.venvs/ai/bin/python" ]]; then
   "$HOME/.venvs/ai/bin/python" tests/installer.py
 else

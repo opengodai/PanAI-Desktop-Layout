@@ -29,7 +29,7 @@ dock.add_child(button); group.add_child(dock); group.add_child(unrelated);
 const layout=new Actor(); layout.uiGroup=group;
 const manager=new Actor(); let idle;
 let centerCleanupCount=0;
-const context={installButtonAlignment:()=>()=>{},installScreenCenter:()=>()=>{centerCleanupCount++;},Main:{panel:{statusArea:{dateMenu:{container:clock},activities:{container:activities}},_leftBox:left,_centerBox:center},layoutManager:layout,extensionManager:manager,sessionMode:new Actor()},
+const context={playBaguaRipple:function(){this._clearRings();for(let i=0;i<9;i++){const ring=new Actor({style:`border-color: #00000${i}`});ring.ease({onComplete:()=>{this._rings.delete(ring);ring.destroy();}});this._rings.add(ring);}},installRgbIndicator:()=>()=>{},installButtonAlignment:()=>()=>{},installScreenCenter:()=>()=>{centerCleanupCount++;},Main:{panel:{statusArea:{dateMenu:{container:clock},activities:{container:activities}},_leftBox:left,_centerBox:center},layoutManager:layout,extensionManager:manager,sessionMode:new Actor()},
     GLib:{PRIORITY_DEFAULT_IDLE:0,SOURCE_REMOVE:false,idle_add:(_p,fn)=>{idle=fn;return 1;},Source:{remove:()=>{idle=null;}}},
     St:{Widget:Actor},Clutter:{AnimationMode:{EASE_OUT_QUAD:1}},Extension:class {}};
 vm.createContext(context);
@@ -44,9 +44,10 @@ center.add_child(clock); left.add_child(activities);
 context.Main.sessionMode.emit('updated'); idle();
 assert.equal(clock.parent,left);assert.equal(activities.parent,center);
 assert(button.classes.has('archgpt-color-launcher')); assert(!unrelated.classes.has('archgpt-color-launcher'));
-button.emit('clicked'); assert.equal(extension._rings.size,3);
+button.emit('clicked'); assert.equal(extension._rings.size,9);
+assert.equal(new Set([...extension._rings].map(r=>r.style.match(/border-color: (#[0-9a-f]+)/)[1])).size,9);
 const first=[...extension._rings]; button.emit('clicked');
-assert(first.every(a=>a.dead)); assert.equal(extension._rings.size,3);
+assert(first.every(a=>a.dead)); assert.equal(extension._rings.size,9);
 const rings=[...extension._rings]; rings.forEach(a=>a.transition.onComplete()); assert.equal(extension._rings.size,0);
 button.emit('clicked'); extension.disable();
 assert.equal(clock.parent,center); assert.equal(center.children[0],clock);
@@ -54,4 +55,4 @@ assert.equal(extension._rings.size,0); assert.equal(button.signals.size,0);
 assert(!button.classes.has('archgpt-color-launcher')); assert.equal(manager.signals.size,0); assert.equal(layout.signals.size,0);assert.equal(context.Main.sessionMode.signals.size,0);
 extension.enable(); idle(); button.destroy(); assert.equal(extension._buttons.size,0); extension.disable();
 assert.equal(centerCleanupCount,2);
-console.log('PASS: clock move/restore; scoped button styling; repeated click bound to 3 rings; animation cleanup; disable cleanup; destroyed button cleanup');
+console.log('PASS: clock move/restore; scoped button styling; repeated click bound to 9 rings; animation cleanup; disable cleanup; destroyed button cleanup');

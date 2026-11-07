@@ -40,6 +40,13 @@ export function installButtonAlignment() {
     };
     const buttonId = button.connect('notify::allocation', align);
     const contentId = indicators.connect('notify::allocation', align);
+    // Native WorkspaceDot changes allocation after its parent's allocation.
+    // Its actual pill width must trigger a fresh center calculation as well.
+    const dotSignals=[];
+    for(const actor of indicators.get_children()) {
+        if(actor._dot?.connect)dotSignals.push([actor._dot,
+            actor._dot.connect('notify::allocation',align)]);
+    }
     const styleId = clock.connect('style-changed', zeroClockPadding);
     clock.set_style(`${clockStyle ? clockStyle + '; ' : ''}-natural-hpadding: 0px; -minimum-hpadding: 0px;`);
     label.set_style(`${labelStyle ? labelStyle + '; ' : ''}padding-left: 0px;`);
@@ -52,6 +59,7 @@ export function installButtonAlignment() {
         connected = false;
         button.disconnect(buttonId);
         indicators.disconnect(contentId);
+        for(const [dot,id]of dotSignals){try{dot.disconnect(id);}catch{}}
         clock.disconnect(styleId);
         indicators.translation_x = originalX;
         clock.set_style(originalClockStyle);

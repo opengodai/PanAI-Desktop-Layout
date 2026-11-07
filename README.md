@@ -27,7 +27,7 @@ cd PanAI-Desktop-Layout
 ./install.sh --check
 ```
 
-安装需要系统已提供 GNOME Shell 50、Ubuntu Dock，以及带 PyGObject/GIO 的 Python。脚本优先使用 `~/.venvs/ai/bin/python`；其他环境可通过 `PANDESKTOP_PYTHON` 指定解释器。
+安装需要系统已提供 GNOME Shell 50、Ubuntu Dock，以及带 PyGObject/GIO 的 Python。脚本优先使用 `~/.venvs/ai/bin/python`；其他环境可通过 `PANAI_DESKTOP_LAYOUT_PYTHON` 指定解释器。
 
 ### 无需注销的即时生效
 
@@ -60,14 +60,14 @@ await import('file:///absolute/path/to/PanAI-Desktop-Layout/scripts/activate-liv
 或指定本用户备份目录：
 
 ```bash
-./restore.sh ~/.local/state/PanDesktop/backups/备份编号
+./restore.sh ~/.local/state/PanAI-Desktop-Layout/backups/备份编号
 ```
 
-备份保存在 `$XDG_STATE_HOME/PanDesktop/backups`（默认 `~/.local/state/PanDesktop/backups`），回退只恢复本项目涉及的设置、文件和扩展成员关系。运行中已导入的源码存在 GNOME 会话缓存，源码回退和当前画面恢复应分别验证。回退前的源码与配置备份会保留，不包含截图和应用数据。
+备份保存在 `$XDG_STATE_HOME/PanAI-Desktop-Layout/backups`（默认 `~/.local/state/PanAI-Desktop-Layout/backups`），回退只恢复本项目涉及的设置、文件和扩展成员关系。运行中已导入的源码存在 GNOME 会话缓存，源码回退和当前画面恢复应分别验证。回退前的源码与配置备份会保留，不包含截图和应用数据。
 
 ## 源码与验证
 
-- `extension/`：完整自定义扩展，UUID 保留为 `archgpt-desktop-polish@archgpt.local`，与已验收实例兼容。
+- `extension/`：完整自定义扩展，UUID 为 `panai-desktop-layout@opengodai.github.io`。
 - `icons/`：九色点阵 SVG、全色 PNG 别名、Windows 四色 SVG 和图标主题。
 - `config/`：顶部、Dock 的完整配置与已测运行环境。
 - `scripts/`：安装/回退实现及无需注销的激活入口。
@@ -85,7 +85,7 @@ node tests/button-align.cjs
 
 ## 名称与兼容性
 
-项目已从 PanDesktop 更名为 **PanAI Desktop Layout**，GitHub 仓库为 `opengodai/PanAI-Desktop-Layout`。保留扩展 UUID、原有 `PanDesktop` 备份目录和本机安装路径，确保已有配置与回退记录继续可用。
+项目名称为 **PanAI Desktop Layout**，GitHub 仓库为 `opengodai/PanAI-Desktop-Layout`。扩展 UUID 为 `panai-desktop-layout@opengodai.github.io`；项目目录、图标主题及用户备份目录统一为 `PanAI-Desktop-Layout`。
 
 2026-11-07 修复了旧会话扩展实例的问题，并增加会话恢复后的布局校正。回归测试覆盖扩展启停及会话布局重建；当前桌面已实际确认顶部时钟靠左、工作区指示器居中。
 

@@ -8,10 +8,10 @@ sys.path.append('/usr/lib/python3/dist-packages')
 from gi.repository import Gio, GLib
 
 ROOT = Path(__file__).resolve().parents[1]
-UUID = 'archgpt-desktop-polish@archgpt.local'
-THEME = 'ArchGPT-ColorDots'
+UUID = 'panai-desktop-layout@opengodai.github.io'
+THEME = 'PanAI-Desktop-Layout'
 DATA = Path(os.environ.get('XDG_DATA_HOME', Path.home()/'.local/share'))
-STATE = Path(os.environ.get('XDG_STATE_HOME', Path.home()/'.local/state'))/'PanDesktop'
+STATE = Path(os.environ.get('XDG_STATE_HOME', Path.home()/'.local/state'))/'PanAI-Desktop-Layout'
 PROFILE = json.loads((ROOT/'config/desktop.json').read_text())
 TARGETS = [(ROOT/'extension', DATA/'gnome-shell/extensions'/UUID),
            (ROOT/'icons'/THEME, DATA/'icons'/THEME)]
@@ -54,7 +54,7 @@ def restore(path):
     path=Path(path).expanduser().resolve()
     # Backups are private local state, not input from the repository or internet.
     if path.parent != (STATE/'backups').resolve():
-        raise RuntimeError('只接受本用户 PanDesktop/backups 内的备份。')
+        raise RuntimeError('只接受本用户 PanAI-Desktop-Layout/backups 内的备份。')
     if path.stat().st_uid!=os.getuid() or path.stat().st_mode & 0o077:
         raise RuntimeError('备份目录属主或权限不正确。')
     doc=json.loads((path/'backup.json').read_text())

@@ -2,22 +2,22 @@
  * Copyright (C) 2026 OpenGodAI contributors
  */
 /* Only the app-grid button is affected; the Dock stays transparent. */
-#dashtodockContainer .show-apps.archgpt-color-launcher:hover .overview-icon {
+#dashtodockContainer .show-apps.panai-color-launcher:hover .overview-icon {
     background-color: rgba(73, 201, 242, 0.18);
     box-shadow: none;
 }
-#dashtodockContainer .show-apps.archgpt-color-launcher:active .overview-icon,
-#dashtodockContainer .show-apps.archgpt-color-launcher:checked .overview-icon {
+#dashtodockContainer .show-apps.panai-color-launcher:active .overview-icon,
+#dashtodockContainer .show-apps.panai-color-launcher:checked .overview-icon {
     background-color: rgba(165, 109, 226, 0.25);
     box-shadow: none;
 }
-.archgpt-launcher-ripple {
+.panai-launcher-ripple {
     border: 3px solid;
     border-radius: 999px;
     background-color: transparent;
 }
 
-#dashtodockContainer .show-apps.archgpt-color-launcher .overview-icon {
+#dashtodockContainer .show-apps.panai-color-launcher .overview-icon {
     border: none;
     box-shadow: none;
 }

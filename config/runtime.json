@@ -5,8 +5,8 @@
     "session": "Wayland",
     "ubuntu_dock": 105
   },
-  "extension_uuid": "archgpt-desktop-polish@archgpt.local",
-  "icon_theme": "ArchGPT-ColorDots",
+  "extension_uuid": "panai-desktop-layout@opengodai.github.io",
+  "icon_theme": "PanAI-Desktop-Layout",
   "system_dependencies": [
     "GNOME Shell 50",
     "Ubuntu Dock",

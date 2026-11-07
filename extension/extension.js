@@ -9,7 +9,7 @@ import Clutter from 'gi://Clutter';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
 
-export default class DesktopPolish extends Extension {
+export default class PanAIDesktopLayout extends Extension {
     enable() {
         this._buttons = new Map();
         this._adaptiveDashes = new Map();
@@ -64,7 +64,7 @@ export default class DesktopPolish extends Extension {
             this._adaptiveDashes.set(actor.dash, adaptDash(actor.dash));
         if (inDock && actor.has_style_class_name?.('show-apps') &&
             !this._buttons.has(actor)) {
-            actor.add_style_class_name('archgpt-color-launcher');
+            actor.add_style_class_name('panai-color-launcher');
             const clicked = actor.connect('clicked', () => this._play(actor));
             const destroyed = actor.connect('destroy', () => this._buttons.delete(actor));
             this._buttons.set(actor, [clicked, destroyed]);
@@ -103,7 +103,7 @@ export default class DesktopPolish extends Extension {
         Main.sessionMode.disconnect(this._sessionId);
         for (const [button, ids] of this._buttons) {
             ids.forEach(id => button.disconnect(id));
-            button.remove_style_class_name('archgpt-color-launcher');
+            button.remove_style_class_name('panai-color-launcher');
         }
         this._buttons.clear();
         this._clearRings();

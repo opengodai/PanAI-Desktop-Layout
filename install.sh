@@ -3,8 +3,8 @@
 # Copyright (C) 2026 OpenGodAI contributors
 set -euo pipefail
 root=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-if [[ -n ${PANDESKTOP_PYTHON:-} ]]; then
-  py=$PANDESKTOP_PYTHON
+if [[ -n ${PANAI_DESKTOP_LAYOUT_PYTHON:-} ]]; then
+  py=$PANAI_DESKTOP_LAYOUT_PYTHON
 elif [[ -x "$HOME/.venvs/ai/bin/python" ]]; then
   py=$HOME/.venvs/ai/bin/python
 else

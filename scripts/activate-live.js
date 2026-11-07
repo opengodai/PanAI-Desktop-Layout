@@ -5,7 +5,7 @@ import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
 import {ExtensionType,ExtensionState} from 'resource:///org/gnome/shell/misc/extensionUtils.js';
-const uuid='archgpt-desktop-polish@archgpt.local';
+const uuid='panai-desktop-layout@opengodai.github.io';
 const dir=Gio.File.new_for_path(GLib.build_filenamev([GLib.get_user_data_dir(),'gnome-shell','extensions',uuid]));
 const [ok,bytes]=dir.get_child('runtime.json').load_contents(null);
 if(!ok)throw new Error('请先运行 install.sh 准备当前版本。');

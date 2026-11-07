@@ -35,9 +35,9 @@ const context={playBaguaRipple:function(){this._clearRings();for(let i=0;i<9;i++
     GLib:{PRIORITY_DEFAULT_IDLE:0,SOURCE_REMOVE:false,idle_add:(_p,fn)=>{idle=fn;return 1;},Source:{remove:()=>{idle=null;}}},
     St:{Widget:Actor},Clutter:{AnimationMode:{EASE_OUT_QUAD:1}},Extension:class {}};
 vm.createContext(context);
-const code=fs.readFileSync('extension/extension.js','utf8').replace(/^import .*;\n/gm,'').replace('export default class DesktopPolish','globalThis.DesktopPolish = class DesktopPolish');
+const code=fs.readFileSync('extension/extension.js','utf8').replace(/^import .*;\n/gm,'').replace('export default class PanAIDesktopLayout','globalThis.PanAIDesktopLayout = class PanAIDesktopLayout');
 vm.runInContext(code,context);
-const extension=new context.DesktopPolish();
+const extension=new context.PanAIDesktopLayout();
 extension.enable(); idle();
 assert.equal(clock.parent,left); assert.equal(left.children[0],clock); assert.equal(activities.parent,center);
 // A session/layout rebuild must not leave the native order behind.
@@ -45,7 +45,7 @@ left.remove_child(clock); center.remove_child(activities);
 center.add_child(clock); left.add_child(activities);
 context.Main.sessionMode.emit('updated'); idle();
 assert.equal(clock.parent,left);assert.equal(activities.parent,center);
-assert(button.classes.has('archgpt-color-launcher')); assert(!unrelated.classes.has('archgpt-color-launcher'));
+assert(button.classes.has('panai-color-launcher')); assert(!unrelated.classes.has('panai-color-launcher'));
 button.emit('clicked'); assert.equal(extension._rings.size,9);
 assert.equal(new Set([...extension._rings].map(r=>r.style.match(/border-color: (#[0-9a-f]+)/)[1])).size,9);
 const first=[...extension._rings]; button.emit('clicked');
@@ -54,7 +54,7 @@ const rings=[...extension._rings]; rings.forEach(a=>a.transition.onComplete()); 
 button.emit('clicked'); extension.disable();
 assert.equal(clock.parent,center); assert.equal(center.children[0],clock);
 assert.equal(extension._rings.size,0); assert.equal(button.signals.size,0);
-assert(!button.classes.has('archgpt-color-launcher')); assert.equal(manager.signals.size,0); assert.equal(layout.signals.size,0);assert.equal(context.Main.sessionMode.signals.size,0);
+assert(!button.classes.has('panai-color-launcher')); assert.equal(manager.signals.size,0); assert.equal(layout.signals.size,0);assert.equal(context.Main.sessionMode.signals.size,0);
 extension.enable(); idle(); button.destroy(); assert.equal(extension._buttons.size,0); extension.disable();
 assert.equal(centerCleanupCount,0);
 console.log('PASS: clock move/restore; scoped button styling; repeated click bound to 9 rings; animation cleanup; disable cleanup; destroyed button cleanup');

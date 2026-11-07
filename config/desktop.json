@@ -683,7 +683,7 @@
       "schema": "org.gnome.desktop.interface",
       "key": "icon-theme",
       "type": "s",
-      "value": "'ArchGPT-ColorDots'"
+      "value": "'PanAI-Desktop-Layout'"
     },
     {
       "schema": "org.gnome.shell",
@@ -694,7 +694,7 @@
   ],
   "enable_extensions": [
     "ubuntu-dock@ubuntu.com",
-    "archgpt-desktop-polish@archgpt.local"
+    "panai-desktop-layout@opengodai.github.io"
   ],
   "disable_extensions": [
     "dash-to-panel@jderose9.github.com"

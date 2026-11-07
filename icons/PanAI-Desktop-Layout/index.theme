@@ -1,5 +1,5 @@
 [Icon Theme]
-Name=ArchGPT Color Dots
+Name=PanAI Desktop Layout Color Dots
 Comment=Nine colored launcher dots; all other icons inherit Adwaita
 Inherits=Adwaita,hicolor
 Directories=128x128/actions

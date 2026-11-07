@@ -23,5 +23,5 @@ node tests/workspace-bar.cjs
 if [[ -x "$HOME/.venvs/ai/bin/python" ]]; then
   "$HOME/.venvs/ai/bin/python" tests/installer.py
 else
-  "${PANDESKTOP_PYTHON:-python3}" tests/installer.py
+  "${PANAI_DESKTOP_LAYOUT_PYTHON:-python3}" tests/installer.py
 fi

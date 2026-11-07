@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 OpenGodAI contributors
 const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
 const code=fs.readFileSync('extension/screen-center.js','utf8').replace(/^import .*;\n/gm,'').replace('export function installScreenCenter','function installScreenCenter')+'\nglobalThis.installScreenCenter=installScreenCenter;';
 for (const test of [{x:0,width:1920,dockOffset:25},{x:0,width:1920,dockOffset:18.5},{x:-1600,width:1600,dockOffset:0},{x:1920,width:1536,dockOffset:-24}]) {

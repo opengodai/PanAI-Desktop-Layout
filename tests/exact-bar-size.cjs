@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 OpenGodAI contributors
 const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
 for(const natural of [8,22,22.5,23]){
  const callbacks=new Map();let id=0;

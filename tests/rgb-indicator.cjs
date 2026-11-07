@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 OpenGodAI contributors
 const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
 let time=0,tick,removed=0,clicked,disconnected=0,plays=0;const dot={style:null,get_style(){return this.style;},set_style(v){this.style=v;},get_stage:()=>true};
 const context={playStarChain:function(){plays++;},GLib:{get_monotonic_time:()=>time,SOURCE_CONTINUE:true,PRIORITY_DEFAULT:0,timeout_add(_p,ms,fn){assert.equal(ms,33);tick=fn;return 1;},Source:{remove(){removed++;}}},Main:{sessionMode:{},panel:{statusArea:{activities:{_clickGesture:{connect(name,fn){assert.equal(name,'recognize');clicked=fn;return 8;},disconnect(id){assert.equal(id,8);disconnected++;}},get_first_child:()=>({get_children:()=>[{_dot:dot,expansion:1}]})}}}}};

@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 OpenGodAI contributors
 // Ubuntu Dock keeps a list of candidate logical icon sizes. Extend its native
 // space/count calculation with all integer sizes from 15 to the configured cap.
 export function adaptiveSizes(maxSize, fixed = false) {

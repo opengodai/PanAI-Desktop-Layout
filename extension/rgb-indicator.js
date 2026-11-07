@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 OpenGodAI contributors
 import GLib from 'gi://GLib';
 import {playStarChain} from './star-chain.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';

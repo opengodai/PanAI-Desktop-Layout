@@ -94,3 +94,7 @@ node tests/button-align.cjs
 安装文件位于当前用户的 GNOME 扩展目录，启用状态与 Dock 设置由 GSettings 持久保存。正常重启或重新登录时会加载相同的最终实现，不需要重复执行临时效果脚本。当前会话应用安装更新时，统一使用 `scripts/activate-live.js`；不再叠加逐项实验补丁。
 
 兼容范围目前为 GNOME Shell 50 / Ubuntu Dock 105。未来 GNOME 大版本升级需要重新验证。自动化覆盖安装回退、资源清理和启停恢复；不会为验证而重启正在工作的桌面。
+
+## 开源许可证
+
+本项目采用 **GNU General Public License v3.0 or later（GPL-3.0-or-later）**。可依许可证使用、修改和分发；分发修改版本时须遵守相应源码提供和许可证保留义务。完整条款见 [LICENSE](LICENSE)，版权及适用范围见 [COPYRIGHT](COPYRIGHT)。系统 GNOME、Ubuntu Dock、继承的图标主题及其他第三方组件继续遵循各自许可。

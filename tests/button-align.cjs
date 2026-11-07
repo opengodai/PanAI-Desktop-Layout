@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 OpenGodAI contributors
 const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
 const code=fs.readFileSync('extension/button-align.js','utf8').replace(/^import .*;\n/gm,'').replace('export function installButtonAlignment','function installButtonAlignment')+'\nglobalThis.installButtonAlignment=installButtonAlignment;';
 for(const offset of [-12,-7.5,9,0]){

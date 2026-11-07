@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 OpenGodAI contributors
 import GLib from 'gi://GLib';
 import {playBaguaRipple} from './bagua-ripple.js';
 import {installBarColoredTitle as installRgbIndicator} from './bar-colored-title.js';

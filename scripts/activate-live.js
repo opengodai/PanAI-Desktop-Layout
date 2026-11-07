@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 OpenGodAI contributors
 // Explicit user invocation in Looking Glass. No unsafe-mode changes or restart.
 import Gio from 'gi://Gio';
 import GLib from 'gi://GLib';

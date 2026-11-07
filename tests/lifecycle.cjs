@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 OpenGodAI contributors
 const fs = require('fs');
 const vm = require('vm');
 const assert = require('assert/strict');

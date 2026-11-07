@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 OpenGodAI contributors
 const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
 class Actor{constructor(p){Object.assign(this,p);this.signals=new Map();this.paintCount=0;this.arcCount=0;this.disposed=0;}ease(a){this.animation=a;}destroy(){this.dead=true;}remove_all_transitions(){}set_pivot_point(x,y){this.pivot=[x,y];}connect(n,f){this.signals.set(n,f);}queue_repaint(){this.paintCount++;this.signals.get('repaint')(this);}get_context(){return {setSourceRGBA:()=>{},arc:()=>this.arcCount++,fill:()=>{},$dispose:()=>this.disposed++};}}
 const added=[];const context={St:{DrawingArea:Actor},Clutter:{AnimationMode:{EASE_OUT_CUBIC:1,EASE_OUT_QUAD:2}},Main:{layoutManager:{uiGroup:{add_child(a){added.push(a);}}}}};

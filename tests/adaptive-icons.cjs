@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 OpenGodAI contributors
 const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
 const context={};vm.createContext(context);
 vm.runInContext(fs.readFileSync('extension/adaptive-icons.js','utf8').replaceAll('export function ','function ')+'\nglobalThis.api={adaptiveSizes,adaptDash};',context);

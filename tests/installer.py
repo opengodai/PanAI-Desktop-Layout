@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-3.0-or-later
+# Copyright (C) 2026 OpenGodAI contributors
 """Round-trip installer with memory GSettings and isolated user data paths."""
 import os, runpy, tempfile, sys
 from pathlib import Path

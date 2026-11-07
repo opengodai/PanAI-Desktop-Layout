@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 OpenGodAI contributors
 import GLib from 'gi://GLib';
 import {COLOR_STOPS} from './rgb-indicator.js';
 import St from 'gi://St';

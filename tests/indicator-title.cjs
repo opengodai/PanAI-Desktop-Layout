@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// Copyright (C) 2026 OpenGodAI contributors
 const fs=require('fs'),vm=require('vm'),assert=require('assert/strict');
 class Actor{constructor(props={}){Object.assign(this,props);this.children=[];}add_child(a){this.children.push(a);}get_children(){return this.children;}ease(a){this.animation=a;}destroy(){this.dead=true;this.children.forEach(c=>c.destroy());}}
 let callback,timerCallback,removed=0,disconnected=0;const content={opacity:255};

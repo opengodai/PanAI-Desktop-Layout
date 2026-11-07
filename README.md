@@ -1,4 +1,4 @@
-# PanDesktop
+# PanAI Desktop Layout
 
 顶部状态栏与左侧 Dock 的完整 GNOME 桌面定制，已在 Ubuntu 26.04.1、GNOME Shell 50.1、Wayland、Ubuntu Dock 105 上验收。
 
@@ -14,8 +14,8 @@
 先将仓库克隆到本地，再运行脚本：
 
 ```bash
-git clone https://github.com/opengodai/PanDesktop.git
-cd PanDesktop
+git clone https://github.com/opengodai/PanAI-Desktop-Layout.git
+cd PanAI-Desktop-Layout
 ./install.sh
 ```
 
@@ -36,7 +36,7 @@ Dock 设置会即时更新。GNOME 对新建本地扩展的发现有限制，已
 命令形式如下（用安装脚本输出的实际路径替换示例）：
 
 ```js
-await import('file:///absolute/path/to/PanDesktop/scripts/activate-live.js')
+await import('file:///absolute/path/to/PanAI-Desktop-Layout/scripts/activate-live.js')
 ```
 
 其他安装路径应使用安装脚本输出的命令。新登录的会话会自动加载已启用的扩展。
@@ -82,3 +82,9 @@ node tests/button-align.cjs
 ```
 
 依赖由系统 GNOME/Ubuntu Dock 和已安装应用提供；右侧托盘保持原有应用的原生行为。收藏中的应用仍需已安装，PanCapture 为独立项目。[验收边界](docs/VALIDATION.md)、[来源与依赖](docs/PROVENANCE.md)。
+
+## 名称与兼容性
+
+项目已从 PanDesktop 更名为 **PanAI Desktop Layout**，GitHub 仓库为 `opengodai/PanAI-Desktop-Layout`。保留扩展 UUID、原有 `PanDesktop` 备份目录和本机安装路径，确保已有配置与回退记录继续可用。
+
+2026-11-07 修复了旧会话扩展实例的问题，并增加会话恢复后的布局校正。回归测试覆盖扩展启停及会话布局重建；当前桌面已实际确认顶部时钟靠左、工作区指示器居中。

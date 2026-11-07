@@ -36,4 +36,4 @@ if(!state._panDesktopLiveWrapped){
     };
     state._panDesktopLiveWrapped=true;
 }
-export const result='PanDesktop 当前会话布局已应用。';
+export const result='PanAI Desktop Layout 当前会话布局已应用。';

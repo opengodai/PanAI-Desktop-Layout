@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""User-scoped PanDesktop install, check and exact-settings rollback."""
+"""User-scoped PanAI Desktop Layout install, check and exact-settings rollback."""
 from pathlib import Path
 import argparse, datetime, json, os, shutil, sys
 sys.path.append('/usr/lib/python3/dist-packages')

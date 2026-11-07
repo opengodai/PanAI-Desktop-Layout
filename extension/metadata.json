@@ -1,7 +1,7 @@
 {
   "uuid": "archgpt-desktop-polish@archgpt.local",
-  "name": "PanDesktop",
-  "description": "Top panel and left Dock customization with colorful launcher feedback.",
+  "name": "PanAI Desktop Layout",
+  "description": "GNOME top panel and left Dock layout, colorful icons and interaction effects.",
   "shell-version": [
     "50"
   ],

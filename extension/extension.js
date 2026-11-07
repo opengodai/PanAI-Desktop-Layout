@@ -26,6 +26,7 @@ export default class DesktopPolish extends Extension {
             () => this._queueBind());
         this._monitorsId = Main.layoutManager.connect('monitors-changed',
             () => this._queueBind());
+        this._sessionId = Main.sessionMode.connect('updated', () => this._queueBind());
         this._queueBind();
     }
 
@@ -34,9 +35,23 @@ export default class DesktopPolish extends Extension {
             return;
         this._idle = GLib.idle_add(GLib.PRIORITY_DEFAULT_IDLE, () => {
             this._idle = 0;
-            this._bindDockButtons(Main.layoutManager.uiGroup, false);
+            if (!Main.sessionMode.isLocked && !Main.sessionMode.isGreeter) {
+                this._restoreLayout();
+                this._bindDockButtons(Main.layoutManager.uiGroup, false);
+            }
             return GLib.SOURCE_REMOVE;
         });
+    }
+
+    _restoreLayout() {
+        if (this._clock.get_parent() !== Main.panel._leftBox) {
+            this._clock.get_parent()?.remove_child(this._clock);
+            Main.panel._leftBox.insert_child_at_index(this._clock, 0);
+        }
+        if (this._activities.get_parent() !== Main.panel._centerBox) {
+            this._activities.get_parent()?.remove_child(this._activities);
+            Main.panel._centerBox.add_child(this._activities);
+        }
     }
 
     _bindDockButtons(actor, inDock) {
@@ -108,6 +123,7 @@ export default class DesktopPolish extends Extension {
         }
         Main.extensionManager.disconnect(this._extensionsId);
         Main.layoutManager.disconnect(this._monitorsId);
+        Main.sessionMode.disconnect(this._sessionId);
         for (const [button, ids] of this._buttons) {
             ids.forEach(id => button.disconnect(id));
             button.remove_style_class_name('archgpt-color-launcher');

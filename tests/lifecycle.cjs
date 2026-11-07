@@ -56,5 +56,5 @@ assert.equal(clock.parent,center); assert.equal(center.children[0],clock);
 assert.equal(extension._rings.size,0); assert.equal(button.signals.size,0);
 assert(!button.classes.has('archgpt-color-launcher')); assert.equal(manager.signals.size,0); assert.equal(layout.signals.size,0);assert.equal(context.Main.sessionMode.signals.size,0);
 extension.enable(); idle(); button.destroy(); assert.equal(extension._buttons.size,0); extension.disable();
-assert.equal(centerCleanupCount,2);
+assert.equal(centerCleanupCount,0);
 console.log('PASS: clock move/restore; scoped button styling; repeated click bound to 9 rings; animation cleanup; disable cleanup; destroyed button cleanup');

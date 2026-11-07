@@ -4,8 +4,6 @@ import GLib from 'gi://GLib';
 import {playBaguaRipple} from './bagua-ripple.js';
 import {installBarColoredTitle as installRgbIndicator} from './bar-colored-title.js';
 import {adaptDash} from './adaptive-icons.js';
-import {installScreenCenter} from './screen-center.js';
-import {installButtonAlignment} from './button-align.js';
 import St from 'gi://St';
 import Clutter from 'gi://Clutter';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';
@@ -26,8 +24,6 @@ export default class DesktopPolish extends Extension {
         this._activitiesIndex = this._activitiesParent.get_children().indexOf(this._activities);
         this._activitiesParent.remove_child(this._activities);
         Main.panel._centerBox.add_child(this._activities);
-        this._screenCenterCleanup = installScreenCenter();
-        this._buttonAlignmentCleanup = installButtonAlignment();
         this._rgbIndicatorCleanup = installRgbIndicator();
         this._extensionsId = Main.extensionManager.connect('extension-state-changed',
             () => this._queueBind());

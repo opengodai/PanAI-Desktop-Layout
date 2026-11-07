@@ -19,6 +19,7 @@ node tests/indicator-title.cjs
 node tests/bagua-ripple.cjs
 node tests/check-pill-width-regression.cjs
 node tests/exact-bar-size.cjs
+node tests/workspace-bar.cjs
 if [[ -x "$HOME/.venvs/ai/bin/python" ]]; then
   "$HOME/.venvs/ai/bin/python" tests/installer.py
 else

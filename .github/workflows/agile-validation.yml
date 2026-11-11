@@ -1,0 +1,59 @@
+name: Agile automated validation
+run-name: PanPM/${{ inputs.panpm_request_id }}
+on:
+  workflow_dispatch:
+    inputs:
+      panpm_request_id:
+        required: true
+        type: string
+      panpm_commit_sha:
+        required: true
+        type: string
+      panpm_environment:
+        required: true
+        type: string
+      panpm_operation:
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Validate dispatch scope
+        env:
+          REQUEST_ID: ${{ inputs.panpm_request_id }}
+          COMMIT_SHA: ${{ inputs.panpm_commit_sha }}
+          ENVIRONMENT: ${{ inputs.panpm_environment }}
+          OPERATION: ${{ inputs.panpm_operation }}
+        run: |
+          [[ "$REQUEST_ID" =~ ^[0-9a-f-]{36}$ ]]
+          [[ "$COMMIT_SHA" =~ ^[0-9a-f]{40}$ ]]
+          [[ "$ENVIRONMENT" == "validation" ]]
+          [[ "$OPERATION" == "build" ]]
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          ref: ${{ inputs.panpm_commit_sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: '24.19.0'
+      - name: Check source syntax
+        run: |
+          bash -n install.sh restore.sh scripts/check.sh
+          for source in extension/*.js scripts/activate-live.js; do
+            node --input-type=module --check < "$source"
+          done
+          python -m py_compile scripts/configure.py tests/installer.py
+      - name: Run existing headless regressions
+        run: |
+          set -euo pipefail
+          for test in lifecycle screen-center button-align adaptive-icons rgb-indicator star-chain indicator-title bagua-ripple check-pill-width-regression exact-bar-size workspace-bar; do
+            node "tests/$test.cjs"
+          done
+      - name: Report validation boundary
+        run: |
+          echo 'Passed scope: source syntax and 11 Node regression suites.' >> "$GITHUB_STEP_SUMMARY"
+          echo 'GNOME schema, real-session rendering, installer roundtrip, FPS and reboot persistence are not covered by this hosted job.' >> "$GITHUB_STEP_SUMMARY"

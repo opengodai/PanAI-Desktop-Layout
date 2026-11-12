@@ -7,7 +7,7 @@ export function adaptiveSizes(maxSize, fixed = false) {
     return fixed ? [max] : Array.from({length: max - 14}, (_, i) => i + 15);
 }
 
-export function adaptDash(dash) {
+export function adaptDash(dash, onDestroy = () => {}) {
     if (typeof dash?._initializeIconSize !== 'function' ||
         !Array.isArray(dash._availableIconSizes))
         throw new Error('Unsupported Ubuntu Dock sizing API.');
@@ -21,10 +21,17 @@ export function adaptDash(dash) {
     wrapper.call(dash, max);
     dash._queueRedisplay();
     let active = true;
+    // Ubuntu Dock rebuilds its dash; a destroyed one needs no rollback.
+    const destroyId = dash.connect?.('destroy', () => {
+        active = false;
+        onDestroy();
+    });
     return () => {
         if (!active)
             return;
         active = false;
+        if (destroyId)
+            dash.disconnect(destroyId);
         if (dash._initializeIconSize !== wrapper)
             return;
         dash._initializeIconSize = original;

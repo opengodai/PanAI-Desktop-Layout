@@ -60,8 +60,11 @@ export default class PanAIDesktopLayout extends Extension {
     _bindDockButtons(actor, inDock) {
         inDock ||= actor.name === 'dashtodockContainer';
         if (actor.name === 'dashtodockContainer' && actor.dash &&
-            !this._adaptiveDashes.has(actor.dash))
-            this._adaptiveDashes.set(actor.dash, adaptDash(actor.dash));
+            !this._adaptiveDashes.has(actor.dash)) {
+            const dash = actor.dash;
+            this._adaptiveDashes.set(dash,
+                adaptDash(dash, () => this._adaptiveDashes?.delete(dash)));
+        }
         if (inDock && actor.has_style_class_name?.('show-apps') &&
             !this._buttons.has(actor)) {
             actor.add_style_class_name('panai-color-launcher');

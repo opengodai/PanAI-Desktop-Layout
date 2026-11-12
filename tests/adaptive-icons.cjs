@@ -14,4 +14,12 @@ const pick=space=>Array.from(dash._availableIconSizes).filter(n=>n<=space).at(-1
 assert.equal(pick(999),52);assert.equal(pick(39.8),39);assert.equal(pick(16),16);assert.equal(pick(1),15);
 dash._initializeIconSize(52);assert.equal(pick(40),40);
 cleanup();cleanup();assert.equal(dash._initializeIconSize,original);assert.deepEqual(dash._availableIconSizes,[16,22,24,32,48,52]);
-console.log('PASS: adaptive 15–52, 1px steps, space-dependent selection, lower/upper bounds, reinitialize and rollback');
+// Screen lock: Ubuntu Dock is disabled first, so its DockManager is gone and
+// _initializeIconSize throws. Cleanup must still restore the method and not throw.
+context.console={debug(){}};
+let dockAlive=true;
+const torn={_availableIconSizes:[16,22,24,32,48,52],_initializeIconSize(max){if(!dockAlive)throw new TypeError("can't access property \"settings\", DockManager.getDefault() is null");this._availableIconSizes=[16,22,24,32,48].filter(n=>n<max).concat(max);},_queueRedisplay(){}};
+const tornOriginal=torn._initializeIconSize;const tornCleanup=adaptDash(torn);
+dockAlive=false;
+assert.doesNotThrow(()=>tornCleanup());assert.equal(torn._initializeIconSize,tornOriginal);
+console.log('PASS: adaptive 15–52, 1px steps, space-dependent selection, lower/upper bounds, reinitialize, rollback and lock-time cleanup');

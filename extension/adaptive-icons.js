@@ -28,7 +28,13 @@ export function adaptDash(dash) {
         if (dash._initializeIconSize !== wrapper)
             return;
         dash._initializeIconSize = original;
-        original.call(dash, Math.max(...dash._availableIconSizes));
-        dash._queueRedisplay();
+        // On lock/session change Ubuntu Dock may already be torn down
+        // (DockManager.getDefault() === null); the dash is going away anyway.
+        try {
+            original.call(dash, Math.max(...dash._availableIconSizes));
+            dash._queueRedisplay();
+        } catch (e) {
+            console.debug(`PanAI Desktop Layout: dock already disabled: ${e.message}`);
+        }
     };
 }
